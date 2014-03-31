@@ -20,5 +20,5 @@ module Spree
         params[:order].delete(:payments_attributes)
       end
     end
-  end
+  end if Spree.const_defined? 'CheckoutController'
 end
