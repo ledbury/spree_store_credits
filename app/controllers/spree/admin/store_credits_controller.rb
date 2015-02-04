@@ -52,11 +52,6 @@ module Spree
       params[:store_credit][:remaining_amount] = params[:store_credit][:amount] if params[:store_credit]
     end
 
-    def collection
-      # TODO: PMG - Figure out how we can integrate with accessible_by
-      Spree::StoreCredit.all.page(params[:page] || 1)
-    end
-
     def permitted_store_credit_attributes
       [:user_id, :amount, :reason, :remaining_amount]
     end
