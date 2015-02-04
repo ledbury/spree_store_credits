@@ -1,36 +1,9 @@
-<%- content_for :page_actions do %>
-  <li><%= button_link_to 'New store credit', admin_users_url, icon: 'arrow-left' %> </li>
-<%- end %>
-
-<%- content_for :sidebar do %>
-  <div class='box align-center' data-hook='admin_store_credits'>
-    <%= search_form_for [:admin, @q], url: admin_store_credits_path do |f| %>
-      <div class='field'>
-        <%= f.label :user_email_cont %>
-        <%= f.search_field :user_email_cont %>
-      </div>
-      <div class='field'>
-        <%= f.label :reason_cont %>
-        <%= f.search_field :reason_cont %>
-      </div>
-      <div class='field'>
-        <%= f.label :remaining_amount_gt %>
-        <%= f.search_field :remaining_amount_gt %>
-      </div>
-      <div class='field'>
-        <%= f.label :remaining_amount_lt %>
-        <%= f.search_field :remaining_amount_lt %>
-      </div>
-      <div data-hook='admin_store_credits_buttons'>
-        <%= f.submit %>
-      </div>
-    <%- end %>
-  </div>
-<%- end %>
-
-<%= render :partial => 'spree/admin/shared/configuration_menu' %>
-
 <h1 class="page-title "> <%= Spree.t("listing_store_credits") %></h1><br>
+<%= render 'spree/admin/users/sidebar', current: :store_credits %>
+
+<%- content_for :page_actions do %>
+  <li><%= button_link_to 'New store credit', new_admin_user_store_credit_url(@user), icon: 'arrow-left' %> </li>
+<%- end %>
 
 <table class="index">
   <thead>

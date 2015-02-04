@@ -1,0 +1,11 @@
+<%= render 'spree/admin/users/sidebar', current: :store_credits %>
+
+<h1><%=Spree.t("new_store_credit")%></h1>
+
+<%= render 'spree/shared/error_messages', target: @store_credit %>
+
+<%= form_for(:store_credit, url: admin_user_store_credits_url(@user)) do |f| %>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  <%= render partial: "spree/admin/store_credits/form", locals: { f: f } %>
+  <%= render partial: "spree/admin/shared/new_resource_links" %>
+<% end %>
